@@ -3,15 +3,19 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import chalk from 'chalk'
 import morgan from 'morgan'
+import connectDB from './config/db.js'
 import characters from './data/characters.js'
 
+
+
 dotenv.config()
+connectDB()
 const app = express()
 
 const morganMiddleware = morgan(function (tokens, req, res) {
   return [
       '\n\n\n',
-      chalk.hex('#3cf281').bold('💻💩💻  Morgan --> '),
+      chalk.hex('#3cf281').bold('💻💩💻  Morgan is Running --> '),
       chalk.hex('#44d9e8').bold(tokens.method(req, res)),
       chalk.hex('#ea39b8').bold(tokens.status(req, res)),
       chalk.hex('#e44c55').bold(tokens.url(req, res)),
