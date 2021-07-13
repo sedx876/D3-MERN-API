@@ -4,7 +4,7 @@ import colors from 'colors'
 import chalk from 'chalk'
 import morgan from 'morgan'
 import connectDB from './config/db.js'
-import characters from './data/characters.js'
+import characterRoutes from './routes/characterRoutes.js'
 
 
 
@@ -34,14 +34,9 @@ app.get('/', (req, res) =>{
   res.send('API is Running')
 })
 
-app.get('/api/characters', (req, res) =>{
-  res.json(characters)
-})
+app.use('/api/characters', characterRoutes)
 
-app.get('/api/characters/:id', (req, res) =>{
-  const character = characters.find(c => c._id === req.params.id)
-  res.json(character)
-})
+
 
 const PORT = process.env.PORT || 5000
 

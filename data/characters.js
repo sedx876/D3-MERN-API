@@ -1,6 +1,6 @@
 const characters = [
   {
-    _id: '1',
+    
     title: 'Unhallowed Essence',
     characterKlass: 'Demon Hunter',
     helm: 'Accursed Visage',
@@ -26,7 +26,7 @@ const characters = [
     numReviews: '200'
   },
   {
-    _id: '2',
+   
     title: 'Bone Cage',
     characterKlass: 'NecroMancer',
     helm: 'Bike Helmet',
@@ -52,7 +52,7 @@ const characters = [
     numReviews: '146'
   },
   {
-    _id: '3',
+    
     title: 'Holy Hellz',
     characterKlass: 'Crusader',
     helm: 'Another Helm',
@@ -78,7 +78,7 @@ const characters = [
     numReviews: '900'
   },
   {
-    _id: '4',
+    
     title: 'Wizzy Wiz',
     characterKlass: 'Wizard',
     helm: 'Big Dumb Wizrd HAt',
@@ -104,7 +104,7 @@ const characters = [
     numReviews: '300'
   },
   {
-    _id: '5',
+    
     title: 'The Dumb',
     characterKlass: 'Dork',
     helm: 'Stuff',
