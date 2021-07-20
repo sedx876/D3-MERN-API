@@ -3,19 +3,23 @@ import dotenv from 'dotenv'
 import colors from 'colors'
 import chalk from 'chalk'
 import morgan from 'morgan'
+import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
+
 import characterRoutes from './routes/characterRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 
 
 dotenv.config()
 connectDB()
 const app = express()
+app.use(express.json())
 
 const morganMiddleware = morgan(function (tokens, req, res) {
   return [
       '\n\n\n',
-      chalk.hex('#3cf281').bold('💻💩💻  Morgan is Running --> '),
+      chalk.hex('#3cf281').bold('💻💩💻  Morgan is Running dis --> '),
       chalk.hex('#44d9e8').bold(tokens.method(req, res)),
       chalk.hex('#ea39b8').bold(tokens.status(req, res)),
       chalk.hex('#e44c55').bold(tokens.url(req, res)),
@@ -35,8 +39,10 @@ app.get('/', (req, res) =>{
 })
 
 app.use('/api/characters', characterRoutes)
+app.use('/api/users', userRoutes)
 
-
+app.use(notFound)
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 
